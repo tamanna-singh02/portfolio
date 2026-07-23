@@ -56,12 +56,27 @@ export default function Portfolio() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Restore saved theme on mount and scroll to top
+  // Restore saved theme on mount and force scroll to top
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+
+    // Clear anchor hash if present on reload
+    if (window.location.hash) {
+      window.history.replaceState(null, "", window.location.pathname + window.location.search);
+    }
+
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }, 100);
+
     const saved = (localStorage.getItem("portfolio-theme") as "dark" | "light") || "dark";
     setTheme(saved);
     document.documentElement.dataset.theme = saved;
+
+    return () => clearTimeout(timer);
   }, []);
 
   function toggleTheme() {
