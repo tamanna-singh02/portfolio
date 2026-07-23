@@ -8,9 +8,9 @@ export const DATA = {
     "NestJS + TypeScript Expert",
   ],
   summary:
-    "Full-stack developer with <strong>1+ year of production experience</strong> at KocharTech, transitioning into <strong>AI Engineering</strong>. Built AI-powered systems in production with <strong>RAG pipelines, vector databases</strong>, and <strong>LangGraph agents</strong>.",
+    "Software Development Engineer (SDE-1) building full-stack and backend systems end-to-end with <strong>NestJS, TypeScript, Node.js</strong>, and <strong>Next.js</strong>. Built AI document generation pipeline cutting manual effort by <strong>70%</strong>, WebSocket analytics dashboard lifting sales visibility by <strong>15%</strong>, and optimized DB performance by <strong>20%</strong>.",
   stats: [
-    { value: 300, suffix: "+", label: "LeetCode Problems" },
+    { value: 298, suffix: "", label: "LeetCode Problems" },
     { value: 70, suffix: "%", label: "Docs Effort Reduced" },
     { value: 20, suffix: "%", label: "DB Performance Gain" },
     { value: 9.0, suffix: " CGPA", label: "University Score", decimal: true },
@@ -20,37 +20,57 @@ export const DATA = {
       category: "AI / ML",
       icon: "◈",
       type: "ai",
-      tags: ["RAG Pipelines", "LangGraph Agents", "OpenAI API", "Gemini LLM", "Pinecone", "pgvector", "Embeddings", "Prompt Engineering", "LLM APIs"],
+      tags: [
+        "Large Language Models (LLMs)",
+        "Retrieval-Augmented Generation (RAG)",
+        "LangGraph",
+        "LangChain",
+        "Vector Databases (Pinecone, pgvector)",
+        "Embeddings",
+        "Prompt Engineering",
+        "OpenAI API",
+        "Gemini API",
+        "Machine Learning",
+      ],
     },
     {
-      category: "Backend & APIs",
+      category: "Backend & Full-Stack",
       icon: "◉",
       type: "backend",
-      tags: ["NestJS", "NodeJS", "ExpressJS", "TypeScript", "REST APIs", "WebSockets", "JWT", "System Design"],
-    },
-    {
-      category: "Databases & ORMs",
-      icon: "◆",
-      type: "db",
-      tags: ["PostgreSQL", "Redis", "MySQL", "MongoDB", "Prisma ORM"],
-    },
-    {
-      category: "Frontend",
-      icon: "◇",
-      type: "frontend",
-      tags: ["ReactJS", "NextJS", "Radix UI", "shadcn", "JavaScript"],
-    },
-    {
-      category: "DevOps & Tools",
-      icon: "◎",
-      type: "devops",
-      tags: ["Docker", "Kubernetes", "Git", "GitHub", "Jenkins", "Postman", "Firebase", "CI/CD"],
+      tags: [
+        "NestJS",
+        "Node.js",
+        "Next.js",
+        "React",
+        "REST API Development",
+        "Microservices",
+        "WebSockets",
+        "Docker",
+        "AWS",
+        "PostgreSQL",
+        "Redis",
+        "Prisma",
+      ],
     },
     {
       category: "Languages",
       icon: "◐",
       type: "lang",
-      tags: ["TypeScript", "JavaScript", "Java", "C++"],
+      tags: ["Python", "JavaScript", "TypeScript", "Java", "SQL"],
+    },
+    {
+      category: "Tools & Practices",
+      icon: "◎",
+      type: "tools",
+      tags: [
+        "Git / Version Control",
+        "Docker",
+        "Kubernetes",
+        "Jenkins",
+        "Postman",
+        "CI/CD",
+        "Agile / Scrum",
+      ],
     },
   ],
   journey: [
@@ -76,8 +96,8 @@ export const DATA = {
       gradeColor: "var(--violet)",
       bullets: [
         "Specialized in algorithms, system design, and distributed systems.",
-        "Active participant in hackathons and coding competitions.",
-        "Solved 300+ problems on LeetCode across multiple domains.",
+        "Top 10 Finalist at the All India Smart Hackathon.",
+        "Solved 298 problems on LeetCode across core DS & Algo.",
       ],
     },
     {
@@ -90,9 +110,9 @@ export const DATA = {
       grade: null,
       gradeColor: null,
       bullets: [
-        "Built scalable full-stack app with React, NestJS, PostgreSQL & Redis.",
         "Real-time analytics dashboard via WebSockets — +15% sales visibility.",
-        "RESTful APIs with JWT auth; unit tests with Jest in CI/CD pipeline.",
+        "RESTful APIs with secure JWT authentication and authorization.",
+        "Improved DB query performance by 20%; Jest tests in CI/CD pipeline.",
       ],
     },
     {
@@ -100,14 +120,14 @@ export const DATA = {
       type: "work",
       icon: "◉",
       period: "Sept 2025 – Present",
-      title: "Junior Software Developer",
+      title: "Software Development Engineer 1 (SDE-1)",
       org: "KocharTech · Amritsar, India",
       grade: null,
       gradeColor: null,
       current: true,
       bullets: [
-        "AI-powered document generation system — reduced manual effort by 70%.",
-        "Architected core backend services with NestJS + TypeScript at scale.",
+        "AI doc generation pipeline — reduced manual team effort by 70%.",
+        "Architected core backend services using NestJS, TypeScript & Docker.",
         "Optimized Prisma + PostgreSQL + Redis stack for high-traffic endpoints.",
       ],
     },
@@ -134,20 +154,20 @@ export const DATA = {
     {
       type: "hack",
       icon: "⚡",
-      title: "Tech Hackathons × 2",
-      org: "Competitive Programming",
-      year: "2023–2024",
-      desc: "Participated in 2 inter-college tech hackathons, building rapid prototypes and competing on system design under time pressure.",
+      title: "Top 10 Finalist — Smart Hackathon",
+      org: "All India Smart Hackathon",
+      year: "2024",
+      desc: "Selected in top 10 out of all participating teams nationwide at the All India Smart Hackathon, building a full-stack rapid prototype under a 24–36 hour time constraint.",
       leet: null,
     },
     {
       type: "leet",
       icon: "◆",
-      title: "300+ LeetCode Problems",
+      title: "298 LeetCode Problems",
       org: "LeetCode",
       year: "Ongoing",
       desc: "Consistent algorithmic practice across arrays, trees, DP, graphs, and system design problems.",
-      leet: { easy: 120, medium: 145, hard: 35 },
+      leet: { easy: 178, medium: 113, hard: 7 },
     },
     {
       type: "award",
@@ -158,20 +178,12 @@ export const DATA = {
       desc: "Production AI system that reduced manual documentation effort by 70% across the engineering team.",
       leet: null,
     },
-    {
-      type: "award",
-      icon: "◎",
-      title: "Top Academic Performance",
-      org: "Chitkara University",
-      year: "2025",
-      desc: "Graduated with 9.0 CGPA in Computer Science & Engineering — top academic standing throughout the program.",
-      leet: null,
-    },
   ],
   projects: [
     {
       name: "RepoSage",
       subtitle: "GitHub Codebase Q&A Chatbot",
+      status: "Completed",
       stack: ["NestJS", "TypeScript", "Gemini", "Pinecone", "RAG"],
       bullets: [
         "RAG pipeline that ingests any GitHub repo, chunks files using language-aware boundaries, and stores embeddings in Pinecone for semantic retrieval.",
@@ -207,8 +219,42 @@ export const DATA = {
       },
     },
     {
+      name: "PingWatch",
+      subtitle: "Uptime Monitor & Status SaaS",
+      status: "In progress",
+      stack: ["Next.js", "TypeScript", "PostgreSQL", "Redis", "Docker", "BullMQ"],
+      bullets: [
+        "Architected a multi-tenant uptime monitoring SaaS with Dockerized health-check workers consuming BullMQ/Redis job queues, pushing real-time monitor status via Redis pub/sub and Server-Sent Events.",
+        "Built per-workspace public status pages on Next.js ISR with automated incident creation/resolution on state transitions, delivering Slack, Discord, and webhook alerts through a Redis-backed retry queue with exponential backoff.",
+      ],
+      deepDive: {
+        arch: `  Monitored Services (HTTP / Ping)
+        │
+        ▼
+  [BullMQ / Redis Queue]  ◄── Multi-tenant job scheduler
+        │
+        ▼
+  [Docker Health Worker]  ── Pushes status via Redis Pub/Sub & SSE
+        │
+        ├──► [Next.js ISR Status Page] ── Auto incident creation/resolution
+        └──► [Alert Engine]          ── Retry queue (Slack/Discord/Webhooks)`,
+        details: [
+          { label: "Job Queue", value: "BullMQ on Redis managing concurrent health-check workers with exponential backoff." },
+          { label: "Real-time Updates", value: "Redis Pub/Sub coupled with Server-Sent Events (SSE) for live status streaming." },
+          { label: "Page Rendering", value: "Next.js Incremental Static Regeneration (ISR) for high-performance public status pages." },
+          { label: "Alerting", value: "Webhook dispatchers with retry queues ensuring zero missed incident notifications." },
+        ],
+        challenges: [
+          "Preventing false positive alerts — implemented multi-region verification before triggering incident state.",
+          "Handling high worker throughput — optimized BullMQ concurrency settings and connection pooling on Redis.",
+          "Instant status updates without heavy polling — SSE streaming pushes live downtime events to dashboard instantly.",
+        ],
+      },
+    },
+    {
       name: "Multi-Agent Code Reviewer",
       subtitle: "LangGraph-Powered PR Analysis",
+      status: "In progress",
       stack: ["LangGraph", "TypeScript", "OpenAI", "GitHub API", "PostgreSQL"],
       bullets: [
         "Multi-agent system with specialized agents for security vulnerability detection, performance analysis, style linting, and test coverage gaps.",
@@ -248,50 +294,91 @@ export const DATA = {
       },
     },
     {
-      name: "Comment Moderation AI Agent",
-      subtitle: "Real-time Content Classification",
-      stack: ["Next.js", "Gemini", "Inngest", "Supabase"],
+      name: "AI Research Agent",
+      subtitle: "Autonomous Multi-Source Research System",
+      status: "Completed",
+      stack: ["Python", "LangGraph", "LangChain", "Gemini/Groq", "Tavily", "ArXiv", "Wikipedia", "Rich", "Pydantic", "Loguru"],
       bullets: [
-        "AI agent using Gemini LLM to classify blog comments for spam, toxicity, and quality with structured JSON output parsing.",
-        "Inngest-powered asynchronous event-driven pipeline ensuring scalable, non-blocking performance under high comment volume.",
-        "Integrated Supabase for real-time storage and OneSignal for automated push notifications on moderation decisions.",
+        "Built an AI-powered research agent that autonomously decides when to use external tools instead of relying solely on an LLM's internal knowledge.",
+        "Researches topics via natural language interface, gathering information from multiple trusted sources (Tavily web search, ArXiv academic papers, Wikipedia background knowledge).",
+        "Generates structured Markdown research reports with automatic export options, execution metrics, and step-by-step logging.",
       ],
       deepDive: {
-        arch: `  New Comment Event
+        arch: `  User Research Query
         │
         ▼
-  [Next.js API Route]
-        │  Enqueue moderation task
-        ▼
-  [Inngest Event Queue]  ──► async, durable, retryable
+  [LangGraph Orchestrator]  (StateGraph + ReAct Loop)
+        │
+        ├──► [Tavily Web Search]  ── Real-time web findings & citations
+        ├──► [ArXiv Tool]         ── Academic paper abstracts & metadata
+        └──► [Wikipedia Tool]     ── Background context & topic overview
         │
         ▼
-  [Moderation Agent]  (Gemini LLM)
-        │  Structured JSON output:
-        │  { spam: bool, toxicity: 0-1, quality: 0-1, action: string }
-        │
-        ├──► APPROVE  ──► Supabase (status = approved)
-        ├──► REJECT   ──► Supabase (status = rejected) + notification
-        └──► REVIEW   ──► Supabase (status = pending_human)
-                              │
-                              ▼
-                    [OneSignal Push] ──► Moderator notified`,
+  [Report Synthesizer]  (LLM Node)
+        │  Pydantic schema validation & Markdown formatting
+        ├──► Structured Markdown Report (.md Export)
+        └──► Rich Terminal Interface + Loguru Execution Logs`,
         details: [
-          { label: "LLM Output", value: "Structured JSON schema enforced via Gemini function calling — no regex parsing needed." },
-          { label: "Queue", value: "Inngest handles retries, backoff, and fan-out — no manual queue infrastructure." },
-          { label: "Storage", value: "Supabase Realtime for live dashboard updates; comments table with RLS policies." },
-          { label: "Scale", value: "Non-blocking pipeline handles burst traffic; each event is independently retryable." },
+          { label: "Orchestration", value: "LangGraph StateGraph for dynamic tool routing and iterative research loops." },
+          { label: "Tool Suite", value: "Integrated Tavily API for search, ArXiv for papers, and Wikipedia for general context." },
+          { label: "Validation", value: "Pydantic models ensuring strict output structure for report sections and citations." },
+          { label: "Observability", value: "Loguru logging and Rich CLI components tracking execution metrics and tool calls." },
         ],
         challenges: [
-          "Structured output consistency — Gemini function calling enforces schema but needs fallback JSON parsing.",
-          "Avoiding over-moderation — quality score threshold tuned with labeled dataset of 500+ sample comments.",
-          "Real-time moderator UX — Supabase subscriptions push status changes to dashboard without polling.",
+          "Preventing infinite tool calling loops — implemented step counter limits and stopping conditions in LangGraph state.",
+          "Handling noisy search results — multi-stage LLM filtering to discard low-credibility sources before report generation.",
+          "Synthesizing heterogeneous data — normalizing ArXiv abstracts, Wikipedia summaries, and Tavily snippets into unified Markdown.",
+        ],
+      },
+    },
+    {
+      name: "Human Approval Gate Agent",
+      subtitle: "Human-in-the-Loop AI Execution Agent",
+      status: "Completed",
+      stack: ["Python", "LangGraph", "LangChain", "OpenAI/Groq", "SQLite", "Pydantic"],
+      bullets: [
+        "Built a Human-in-the-Loop (HITL) AI agent that executes real-world actions only after explicit human approval, ensuring reliability, safety, and complete traceability.",
+        "Converts natural language queries into emails, calendar events, and support tickets with automatic action validation prior to execution.",
+        "Pauses execution at a human approval checkpoint with Approve / Edit / Reject options, using LangGraph interrupts to resume execution seamlessly even after application restarts.",
+        "Maintains a complete audit trail of every decision and action for full transparency, accountability, and regulatory compliance.",
+      ],
+      deepDive: {
+        arch: `  User Request (Natural Language)
+        │
+        ▼
+  [Intent & Action Parser]  (LLM + Pydantic Validation)
+        │  Generates structured action payload (email / calendar / ticket)
+        ▼
+  [Action Validator Node]  ── Schema & security validation
+        │
+        ▼
+  [Human Approval Gate]  (LangGraph Interrupt Checkpoint)
+        │  Execution pauses & persists graph state to SQLite checkpointer
+        │
+        ├──► APPROVE ──► [Tool Execution Node] ──► External API Dispatch
+        ├──► EDIT    ──► [State Mutator Node]   ──► Re-validate & Execute
+        └──► REJECT  ──► [Audit Log Node]      ──► Log Rejection & Exit
+        │
+        ▼
+  [Audit Log Engine]  ── Persistent SQLite audit trail of all actions & feedback`,
+        details: [
+          { label: "Human-in-the-Loop", value: "LangGraph interrupt() halts graph state until human explicitly Approves, Edits, or Rejects." },
+          { label: "Persistence", value: "SQLite checkpointer saves full graph state across application restarts and crash recoveries." },
+          { label: "Action Parsing", value: "Pydantic models validate email parameters, calendar times, and ticket priorities before approval." },
+          { label: "Audit Logging", value: "Immutable SQLite logging captures raw inputs, proposed actions, human feedback, and final outcomes." },
+        ],
+        challenges: [
+          "Persisting graph state across restarts — configured LangGraph SqliteSaver checkpointer for zero data loss during approval waits.",
+          "Handling dynamic human edits — structured state mutator merges user modifications back into Pydantic models before execution.",
+          "Preventing unauthorized action execution — strict gate barrier ensures no external API calls occur prior to state approval.",
         ],
       },
     },
   ],
   contact: {
     email: "tamanna.singh1002@gmail.com",
+    phone: "+91-8542877005",
+    location: "Gurgaon, India",
     github: "tamanna-singh02",
     linkedin: "tamanna-singh1002",
   },

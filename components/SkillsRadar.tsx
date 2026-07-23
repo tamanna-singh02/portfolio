@@ -29,7 +29,7 @@ export default function SkillsRadar() {
       .join(" ") + "Z";
 
   return (
-    <svg width="320" height="320" viewBox="0 0 320 320">
+    <svg width="100%" height="auto" viewBox="0 0 320 320" style={{ maxWidth: "320px", display: "block" }}>
       {gridLevels.map((level) => (
         <polygon
           key={level}

@@ -11,6 +11,7 @@ interface DeepDive {
 interface Project {
   name: string;
   subtitle: string;
+  status?: string;
   stack: string[];
   bullets: string[];
   deepDive: DeepDive;
@@ -19,6 +20,9 @@ interface Project {
 export default function ProjectCard({ proj }: { proj: Project }) {
   const [open, setOpen] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+  const rectRef = useRef<DOMRect | null>(null);
+  const rafRef = useRef<number | null>(null);
+  const mousePosRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
   function toggle(e: React.MouseEvent) {
     e.stopPropagation();
@@ -34,17 +38,55 @@ export default function ProjectCard({ proj }: { proj: Project }) {
     }
   }
 
+  function updateRect() {
+    if (cardRef.current) {
+      rectRef.current = cardRef.current.getBoundingClientRect();
+    }
+  }
+
+  function onMouseEnter() {
+    updateRect();
+  }
+
   function onMouseMove(e: React.MouseEvent<HTMLDivElement>) {
-    const rect = e.currentTarget.getBoundingClientRect();
-    e.currentTarget.style.setProperty("--mx", ((e.clientX - rect.left) / rect.width * 100).toFixed(1) + "%");
-    e.currentTarget.style.setProperty("--my", ((e.clientY - rect.top) / rect.height * 100).toFixed(1) + "%");
+    mousePosRef.current = { x: e.clientX, y: e.clientY };
+    if (!rectRef.current) {
+      updateRect();
+    }
+    if (rafRef.current === null) {
+      rafRef.current = requestAnimationFrame(() => {
+        rafRef.current = null;
+        const rect = rectRef.current;
+        const card = cardRef.current;
+        if (rect && card) {
+          const mx = ((mousePosRef.current.x - rect.left) / rect.width) * 100;
+          const my = ((mousePosRef.current.y - rect.top) / rect.height) * 100;
+          card.style.setProperty("--mx", mx.toFixed(1) + "%");
+          card.style.setProperty("--my", my.toFixed(1) + "%");
+        }
+      });
+    }
+  }
+
+  function onMouseLeave() {
+    if (rafRef.current !== null) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    }
+    rectRef.current = null;
   }
 
   return (
-    <div ref={cardRef} className={`project-card reveal${open ? " open" : ""}`} onMouseMove={onMouseMove}>
+    <div
+      ref={cardRef}
+      className={`project-card reveal${open ? " open" : ""}`}
+      onMouseEnter={onMouseEnter}
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+    >
       {/* Left: main info */}
       <div className="project-main-content">
-        <div className="project-status">● In Progress</div>
+        <div className="project-status">● {proj.status || "Completed"}</div>
         <div className="project-title">{proj.name}</div>
         <div className="project-subtitle">{proj.subtitle}</div>
 
@@ -104,7 +146,7 @@ export default function ProjectCard({ proj }: { proj: Project }) {
           </div>
 
           <div>
-            <div style={{ fontFamily: "var(--font-mono)", fontSize: "10px", color: "var(--violet)", letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: "12px" }}>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "10px", color: "var(--cyan)", letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: "12px" }}>
               ⚡ Engineering Challenges
             </div>
             <div className="challenge-list">

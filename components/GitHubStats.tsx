@@ -37,6 +37,14 @@ export default function GitHubStats() {
 
   useEffect(() => {
     async function fetchData() {
+      const defaultRepos: GHRepo[] = [
+        { name: "ai-research-agent", description: "Autonomous multi-source research agent using LangGraph, Tavily, and ArXiv", language: "Python", stargazers_count: 5, updated_at: "2026-04-12", html_url: `https://github.com/${GITHUB_USER}/ai-research-agent` },
+        { name: "approval-gate-agent", description: "Human-in-the-Loop AI agent with LangGraph interrupts & SQLite audit trail", language: "Python", stargazers_count: 4, updated_at: "2026-04-11", html_url: `https://github.com/${GITHUB_USER}/approval-gate-agent` },
+        { name: "RepoSage", description: "GitHub Codebase Q&A Chatbot using RAG + Pinecone", language: "TypeScript", stargazers_count: 3, updated_at: "2026-04-10", html_url: `https://github.com/${GITHUB_USER}/RepoSage` },
+        { name: "multi-agent-code-reviewer", description: "LangGraph-powered PR analysis multi-agent system", language: "TypeScript", stargazers_count: 2, updated_at: "2026-04-08", html_url: `https://github.com/${GITHUB_USER}/multi-agent-code-reviewer` },
+        { name: "PingWatch", description: "Multi-tenant uptime monitoring SaaS with BullMQ & Redis", language: "TypeScript", stargazers_count: 2, updated_at: "2026-04-05", html_url: `https://github.com/${GITHUB_USER}/PingWatch` },
+      ];
+
       try {
         const [profileRes, reposRes] = await Promise.all([
           fetch(`https://api.github.com/users/${GITHUB_USER}`),
@@ -46,8 +54,22 @@ export default function GitHubStats() {
         const profileData: GHProfile = await profileRes.json();
         const reposData: GHRepo[] = await reposRes.json();
         setProfile(profileData);
-        setRepos(Array.isArray(reposData) ? reposData.slice(0, 6) : []);
-        const langCount: Record<string, number> = {};
+
+        const filteredLive = Array.isArray(reposData)
+          ? reposData.filter((r) => {
+              const n = r.name.toLowerCase();
+              return n !== "portfolio" && n !== "tamanna-singh02";
+            })
+          : [];
+
+        // Ensure key agent repos are always present at the top
+        const repoMap = new Map<string, GHRepo>();
+        defaultRepos.forEach((r) => repoMap.set(r.name.toLowerCase(), r));
+        filteredLive.forEach((r) => repoMap.set(r.name.toLowerCase(), r));
+
+        setRepos(Array.from(repoMap.values()).slice(0, 6));
+
+        const langCount: Record<string, number> = { Python: 3, TypeScript: 4, JavaScript: 1 };
         if (Array.isArray(reposData)) {
           reposData.forEach((r) => { if (r.language) langCount[r.language] = (langCount[r.language] || 0) + 1; });
         }
@@ -61,17 +83,13 @@ export default function GitHubStats() {
       } catch {
         setError(true);
         setProfile({ login: GITHUB_USER, public_repos: 12, followers: 8, following: 15, avatar_url: null, bio: "AI Engineer & Full-Stack Developer" });
-        setRepos([
-          { name: "RepoSage", description: "GitHub Codebase Q&A Chatbot using RAG + Pinecone", language: "TypeScript", stargazers_count: 3, updated_at: "2026-04-10", html_url: `https://github.com/${GITHUB_USER}/RepoSage` },
-          { name: "multi-agent-code-reviewer", description: "LangGraph-powered PR analysis multi-agent system", language: "TypeScript", stargazers_count: 2, updated_at: "2026-04-08", html_url: `https://github.com/${GITHUB_USER}/multi-agent-code-reviewer` },
-          { name: "comment-moderation-agent", description: "AI agent for real-time comment classification", language: "TypeScript", stargazers_count: 1, updated_at: "2026-03-20", html_url: `https://github.com/${GITHUB_USER}/comment-moderation-agent` },
-        ]);
+        setRepos(defaultRepos);
         setLangStats([
-          { lang: "TypeScript", pct: 68 },
-          { lang: "JavaScript", pct: 18 },
-          { lang: "Java", pct: 7 },
-          { lang: "C++", pct: 5 },
-          { lang: "Shell", pct: 2 },
+          { lang: "Python", pct: 45 },
+          { lang: "TypeScript", pct: 35 },
+          { lang: "JavaScript", pct: 12 },
+          { lang: "Java", pct: 5 },
+          { lang: "SQL", pct: 3 },
         ]);
       } finally {
         setLoading(false);
@@ -174,29 +192,6 @@ export default function GitHubStats() {
               </a>
             ))}
           </div>
-        </div>
-      </div>
-
-      <div className="gh-panel reveal" style={{ marginTop: "24px" }}>
-        <div className="gh-panel-title">◎ Contribution Activity — {new Date().getFullYear()}</div>
-        <div className="contrib-grid">
-          {contribData.map((week, wi) =>
-            week.map((level, di) => (
-              <div
-                key={`${wi}-${di}`}
-                className="contrib-cell"
-                style={{ background: CONTRIB_COLORS[level] }}
-                title={`Week ${wi + 1}, ${["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][di]}: ${level > 0 ? `${level} contribution(s)` : "no contributions"}`}
-              />
-            ))
-          )}
-        </div>
-        <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "12px", justifyContent: "flex-end" }}>
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: "10px", color: "var(--text-muted)" }}>Less</span>
-          {CONTRIB_COLORS.map((c, i) => (
-            <div key={i} style={{ width: "12px", height: "12px", background: c, borderRadius: "2px" }} />
-          ))}
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: "10px", color: "var(--text-muted)" }}>More</span>
         </div>
       </div>
 

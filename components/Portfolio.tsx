@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { DATA } from "@/lib/data";
 
 const OrbCanvas = dynamic(() => import("./OrbCanvas"), { ssr: false });
+const Hero3DImage = dynamic(() => import("./Hero3DImage"), { ssr: false });
 const SkillsRadar = dynamic(() => import("./SkillsRadar"), { ssr: false });
 const GitHubStats = dynamic(() => import("./GitHubStats"), { ssr: false });
 const Terminal = dynamic(() => import("./Terminal"), { ssr: false });
@@ -56,6 +57,7 @@ export default function Portfolio() {
   const statRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const [statsTriggered, setStatsTriggered] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Restore saved theme on mount
   useEffect(() => {
@@ -123,36 +125,49 @@ export default function Portfolio() {
     const cursor = document.getElementById("cursor");
     const ring = document.getElementById("cursor-ring");
     if (!cursor || !ring) return;
-    let mx = 0, my = 0, rx = 0, ry = 0, raf: number;
+    let mx = -100, my = -100, rx = -100, ry = -100, raf: number;
+    let isHovered = false;
 
     const onMove = (e: MouseEvent) => {
-      mx = e.clientX; my = e.clientY;
-      cursor.style.left = mx + "px"; cursor.style.top = my + "px";
+      mx = e.clientX;
+      my = e.clientY;
     };
-    document.addEventListener("mousemove", onMove);
+    document.addEventListener("mousemove", onMove, { passive: true });
 
-    function animRing() {
-      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-      ring!.style.left = rx + "px"; ring!.style.top = ry + "px";
-      raf = requestAnimationFrame(animRing);
+    function renderCursor() {
+      rx += (mx - rx) * 0.2;
+      ry += (my - ry) * 0.2;
+
+      cursor!.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%) scale(${isHovered ? 2 : 1})`;
+      ring!.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%)`;
+
+      raf = requestAnimationFrame(renderCursor);
     }
-    animRing();
+    renderCursor();
 
     const onEnter = () => {
-      cursor.style.transform = "translate(-50%,-50%) scale(2)";
-      ring.style.width = "56px"; ring.style.height = "56px";
+      isHovered = true;
+      ring.style.width = "56px";
+      ring.style.height = "56px";
     };
     const onLeave = () => {
-      cursor.style.transform = "translate(-50%,-50%) scale(1)";
-      ring.style.width = "36px"; ring.style.height = "36px";
+      isHovered = false;
+      ring.style.width = "36px";
+      ring.style.height = "36px";
     };
     const els = document.querySelectorAll("a, button, .project-card, .skill-tag, .btn-primary, .btn-secondary");
-    els.forEach((el) => { el.addEventListener("mouseenter", onEnter); el.addEventListener("mouseleave", onLeave); });
+    els.forEach((el) => {
+      el.addEventListener("mouseenter", onEnter);
+      el.addEventListener("mouseleave", onLeave);
+    });
 
     return () => {
       document.removeEventListener("mousemove", onMove);
       cancelAnimationFrame(raf);
-      els.forEach((el) => { el.removeEventListener("mouseenter", onEnter); el.removeEventListener("mouseleave", onLeave); });
+      els.forEach((el) => {
+        el.removeEventListener("mouseenter", onEnter);
+        el.removeEventListener("mouseleave", onLeave);
+      });
     };
   }, []);
 
@@ -230,16 +245,33 @@ export default function Portfolio() {
       {/* NAV */}
       <nav>
         <div className="nav-logo">TS<span>.</span>dev</div>
-        <ul className="nav-links">
+        <ul className={`nav-links ${mobileMenuOpen ? "mobile-open" : ""}`}>
           {NAV_ITEMS.map(({ id, label }) => (
-            <li key={id}><a href={`#${id}`}>{label}</a></li>
+            <li key={id}>
+              <a href={`#${id}`} onClick={() => setMobileMenuOpen(false)}>
+                {label}
+              </a>
+            </li>
           ))}
-          <li>
+          <li className="desktop-theme-li">
             <button className="theme-toggle" onClick={toggleTheme} title="Toggle light/dark mode">
               {theme === "dark" ? "☀" : "◑"}
             </button>
           </li>
         </ul>
+
+        <div className="mobile-nav-controls">
+          <button className="theme-toggle mobile-theme-btn" onClick={toggleTheme} title="Toggle light/dark mode">
+            {theme === "dark" ? "☀" : "◑"}
+          </button>
+          <button 
+            className="mobile-menu-btn" 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
+          >
+            {mobileMenuOpen ? "✕" : "☰"}
+          </button>
+        </div>
       </nav>
 
       {/* HERO */}
@@ -260,10 +292,13 @@ export default function Portfolio() {
           </div>
         </div>
         <div className="hero-orb"><OrbCanvas /></div>
+        <div className="hero-media-container">
+          <Hero3DImage />
+        </div>
       </section>
 
       {/* STATS */}
-      <section id="stats-section" style={{ position: "relative", zIndex: 2, padding: "0 60px 80px" }}>
+      <section id="stats-section" className="stats-section-container">
         <div className="hero-stats reveal">
           {DATA.stats.map((s, i) => (
             <div key={i} className="stat-item">
@@ -282,20 +317,20 @@ export default function Portfolio() {
           <div className="section-tag">Capabilities</div>
           <h2 className="section-title">Tech <em>Stack</em></h2>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 360px", gap: "60px", alignItems: "start" }}>
+        <div className="skills-main-layout">
           <div className="skills-grid reveal">
             {DATA.skills.map((cat, i) => (
               <div key={i} className="skill-card">
                 <div className="skill-card-title"><span>{cat.icon}</span> {cat.category}</div>
                 <div className="skill-tags">
                   {cat.tags.map((tag, j) => (
-                    <span key={j} className={`skill-tag${cat.type === "ai" ? " ai" : ""}`}>{tag}</span>
+                    <span key={j} className="skill-tag">{tag}</span>
                   ))}
                 </div>
               </div>
             ))}
           </div>
-          <div className="reveal" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
+          <div className="reveal skills-radar-container">
             <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-muted)", letterSpacing: "0.2em", textTransform: "uppercase" }}>
               Skill Coverage
             </div>
@@ -306,8 +341,8 @@ export default function Portfolio() {
 
       {/* JOURNEY */}
       <section id="journey">
-        <div className="section-header reveal" style={{ textAlign: "center", maxWidth: "600px", margin: "0 auto 64px" }}>
-          <div className="section-tag" style={{ justifyContent: "center" }}>Timeline</div>
+        <div className="section-header reveal">
+          <div className="section-tag">Timeline</div>
           <h2 className="section-title">My <em>Journey</em></h2>
           <p style={{ color: "var(--text-muted)", fontFamily: "var(--font-mono)", fontSize: "12px", marginTop: "12px", letterSpacing: "0.05em" }}>
             # school → university → professional
@@ -319,7 +354,7 @@ export default function Portfolio() {
               {item.side === "left" ? (
                 <>
                   <div className="journey-card">
-                    <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap", justifyContent: "flex-end" }}>
+                    <div className="journey-header-row left">
                       <div className={`journey-type-tag ${item.type}`}>
                         {item.type === "work" ? "◉ Work" : item.type === "education" ? "◈ University" : "◎ School"}
                       </div>
@@ -343,7 +378,7 @@ export default function Portfolio() {
                   <div className="journey-spacer" />
                   <div className="journey-connector"><div className={`journey-node ${item.type}`}>{item.icon}</div></div>
                   <div className="journey-card">
-                    <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
+                    <div className="journey-header-row right">
                       <div className={`journey-type-tag ${item.type}`}>
                         {item.type === "work" ? "◉ Work" : item.type === "education" ? "◈ University" : "◎ School"}
                       </div>
@@ -472,8 +507,10 @@ export default function Portfolio() {
           <ContactForm />
           <div className="contact-links">
             <a href={`mailto:${DATA.contact.email}`} className="contact-link">✉ Email</a>
+            <a href={`tel:${DATA.contact.phone}`} className="contact-link">📱 {DATA.contact.phone}</a>
             <a href={`https://github.com/${DATA.contact.github}`} target="_blank" rel="noopener noreferrer" className="contact-link">⌥ GitHub</a>
             <a href={`https://linkedin.com/in/${DATA.contact.linkedin}`} target="_blank" rel="noopener noreferrer" className="contact-link">◈ LinkedIn</a>
+            <span className="contact-link" style={{ cursor: "default" }}>📍 {DATA.contact.location}</span>
           </div>
         </div>
       </section>

@@ -1,0 +1,320 @@
+{
+  "personal": {
+    "name": {
+      "first": "Tamanna",
+      "last": "Singh"
+    },
+    "titles": [
+      "AI Engineer",
+      "Full-Stack Developer",
+      "LLM Application Builder",
+      "RAG Pipeline Architect",
+      "NestJS + TypeScript Expert"
+    ],
+    "summary": "Software Development Engineer (SDE-1) building full-stack and backend systems end-to-end with NestJS, TypeScript, Node.js, and Next.js. Built AI document generation pipeline cutting manual effort by 70%, WebSocket analytics dashboard lifting sales visibility by 15%, and optimized DB performance by 20%.",
+    "contact": {
+      "email": "tamanna.singh1002@gmail.com",
+      "phone": "+91-8542877005",
+      "location": "Gurgaon, India",
+      "github": "tamanna-singh02",
+      "linkedin": "tamanna-singh1002"
+    }
+  },
+  "stats": [
+    { "value": 298, "suffix": "", "label": "LeetCode Problems" },
+    { "value": 70, "suffix": "%", "label": "Docs Effort Reduced" },
+    { "value": 20, "suffix": "%", "label": "DB Performance Gain" },
+    { "value": 9.0, "suffix": " CGPA", "label": "University Score", "decimal": true }
+  ],
+  "skills": [
+    {
+      "category": "AI / ML",
+      "icon": "◈",
+      "type": "ai",
+      "tags": [
+        "Large Language Models (LLMs)",
+        "Retrieval-Augmented Generation (RAG)",
+        "LangGraph",
+        "LangChain",
+        "Vector Databases (Pinecone, pgvector)",
+        "Embeddings",
+        "Prompt Engineering",
+        "OpenAI API",
+        "Gemini API",
+        "Machine Learning"
+      ]
+    },
+    {
+      "category": "Backend & Full-Stack",
+      "icon": "◉",
+      "type": "backend",
+      "tags": [
+        "NestJS",
+        "Node.js",
+        "Next.js",
+        "React",
+        "REST API Development",
+        "Microservices",
+        "WebSockets",
+        "Docker",
+        "AWS",
+        "PostgreSQL",
+        "Redis",
+        "Prisma"
+      ]
+    },
+    {
+      "category": "Languages",
+      "icon": "◐",
+      "type": "lang",
+      "tags": ["Python", "JavaScript", "TypeScript", "Java", "SQL"]
+    },
+    {
+      "category": "Tools & Practices",
+      "icon": "◎",
+      "type": "tools",
+      "tags": [
+        "Git / Version Control",
+        "Docker",
+        "Kubernetes",
+        "Jenkins",
+        "Postman",
+        "CI/CD",
+        "Agile / Scrum"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "side": "left",
+      "type": "school",
+      "icon": "◎",
+      "period": "2019 – 2020",
+      "title": "Class XII — CBSE",
+      "org": "The Aditya Birla Public School · Renukoot, UP",
+      "grade": "91%",
+      "gradeColor": "var(--cyan)",
+      "bullets": []
+    },
+    {
+      "side": "right",
+      "type": "education",
+      "icon": "◈",
+      "period": "2021 – 2025",
+      "title": "B.E. Computer Science & Engineering",
+      "org": "Chitkara University · Rajpura, Punjab",
+      "grade": "9.0 CGPA",
+      "gradeColor": "var(--violet)",
+      "bullets": [
+        "Specialized in algorithms, system design, and distributed systems.",
+        "Top 10 Finalist at the All India Smart Hackathon.",
+        "Solved 298 problems on LeetCode across core DS & Algo."
+      ]
+    },
+    {
+      "side": "left",
+      "type": "work",
+      "icon": "◉",
+      "period": "Sept 2024 – Aug 2025",
+      "title": "SDE Intern",
+      "org": "KocharTech · Amritsar, India",
+      "grade": null,
+      "gradeColor": null,
+      "bullets": [
+        "Real-time analytics dashboard via WebSockets — +15% sales visibility.",
+        "RESTful APIs with secure JWT authentication and authorization.",
+        "Improved DB query performance by 20%; Jest tests in CI/CD pipeline."
+      ]
+    },
+    {
+      "side": "right",
+      "type": "work",
+      "icon": "◉",
+      "period": "Sept 2025 – Present",
+      "title": "Software Development Engineer 1 (SDE-1)",
+      "org": "KocharTech · Amritsar, India",
+      "grade": null,
+      "gradeColor": null,
+      "current": true,
+      "bullets": [
+        "AI doc generation pipeline — reduced manual team effort by 70%.",
+        "Architected core backend services using NestJS, TypeScript & Docker.",
+        "Optimized Prisma + PostgreSQL + Redis stack for high-traffic endpoints."
+      ]
+    }
+  ],
+  "achievements": [
+    {
+      "type": "cert",
+      "icon": "◈",
+      "title": "Data Structures Certificate",
+      "org": "Coursera",
+      "year": "2023",
+      "desc": "Completed comprehensive course covering arrays, trees, graphs, dynamic programming, and advanced algorithmic patterns.",
+      "leet": null
+    },
+    {
+      "type": "cert",
+      "icon": "◈",
+      "title": "Big Data-201 Certificate",
+      "org": "Infosys Springboard",
+      "year": "2023",
+      "desc": "Certified in Big Data fundamentals, distributed processing frameworks, and data pipeline architecture.",
+      "leet": null
+    },
+    {
+      "type": "hack",
+      "icon": "⚡",
+      "title": "Top 10 Finalist — Smart Hackathon",
+      "org": "All India Smart Hackathon",
+      "year": "2024",
+      "desc": "Selected in top 10 out of all participating teams nationwide at the All India Smart Hackathon, building a full-stack rapid prototype under a 24–36 hour time constraint.",
+      "leet": null
+    },
+    {
+      "type": "leet",
+      "icon": "◆",
+      "title": "298 LeetCode Problems",
+      "org": "LeetCode",
+      "year": "Ongoing",
+      "desc": "Consistent algorithmic practice across arrays, trees, DP, graphs, and system design problems.",
+      "leet": { "easy": 178, "medium": 113, "hard": 7 }
+    },
+    {
+      "type": "award",
+      "icon": "◎",
+      "title": "AI Doc Generation — 70% Efficiency",
+      "org": "KocharTech",
+      "year": "2025",
+      "desc": "Production AI system that reduced manual documentation effort by 70% across the engineering team.",
+      "leet": null
+    }
+  ],
+  "projects": [
+    {
+      "name": "RepoSage",
+      "subtitle": "GitHub Codebase Q&A Chatbot",
+      "status": "Completed",
+      "stack": ["NestJS", "TypeScript", "Gemini", "Pinecone", "RAG"],
+      "bullets": [
+        "RAG pipeline that ingests any GitHub repo, chunks files using language-aware boundaries, and stores embeddings in Pinecone for semantic retrieval.",
+        "Multi-turn conversation memory retaining codebase context across sessions without re-indexing.",
+        "Hybrid search (dense + sparse retrieval) + re-ranking for improved answer precision on complex queries."
+      ],
+      "deepDive": {
+        "arch": "  GitHub Repo URL\n        │\n        ▼\n  [Ingestion Service]  ──────────────────────────────────────\n        │  Clone & walk repo tree                           │\n        │  Language-aware chunking                   NestJS Backend\n        │  Gemini embeddings                               │\n        ▼                                                   │\n  [Pinecone VectorDB]  ◄──────────────────────────────────  │\n        │  Semantic + BM25 sparse index                    │\n        ▼                                                   │\n  [Query Pipeline]  ──► Re-ranker ──► LLM (Gemini) ──►  Chat UI\n        │                                            (Next.js + syntax hl)\n        └─ Conversation memory (session-scoped context)",
+        "details": [
+          { "label": "Chunking Strategy", "value": "Language-aware boundaries: functions, classes, modules — not arbitrary token windows." },
+          { "label": "Retrieval", "value": "Hybrid dense (Gemini embeddings) + sparse (BM25) with cross-encoder re-ranking." },
+          { "label": "Memory", "value": "Session-scoped conversation context stored in-memory; no re-indexing between turns." },
+          { "label": "Auth", "value": "GitHub OAuth for private repo access; streaming LLM responses to the UI." }
+        ],
+        "challenges": [
+          "Handling monorepos with 50k+ files — progressive ingestion with smart file-type filtering.",
+          "Keeping embeddings fresh when repo changes — incremental diff-based re-ingestion on webhook.",
+          "Preventing hallucination by grounding every LLM answer with retrieved code snippets as citations."
+        ]
+      }
+    },
+    {
+      "name": "PingWatch",
+      "subtitle": "Uptime Monitor & Status SaaS",
+      "status": "In progress",
+      "stack": ["Next.js", "TypeScript", "PostgreSQL", "Redis", "Docker", "BullMQ"],
+      "bullets": [
+        "Architected a multi-tenant uptime monitoring SaaS with Dockerized health-check workers consuming BullMQ/Redis job queues, pushing real-time monitor status via Redis pub/sub and Server-Sent Events.",
+        "Built per-workspace public status pages on Next.js ISR with automated incident creation/resolution on state transitions, delivering Slack, Discord, and webhook alerts through a Redis-backed retry queue with exponential backoff."
+      ],
+      "deepDive": {
+        "arch": "  Monitored Services (HTTP / Ping)\n        │\n        ▼\n  [BullMQ / Redis Queue]  ◄── Multi-tenant job scheduler\n        │\n        ▼\n  [Docker Health Worker]  ── Pushes status via Redis Pub/Sub & SSE\n        │\n        ├──► [Next.js ISR Status Page] ── Auto incident creation/resolution\n        └──► [Alert Engine]          ── Retry queue (Slack/Discord/Webhooks)",
+        "details": [
+          { "label": "Job Queue", "value": "BullMQ on Redis managing concurrent health-check workers with exponential backoff." },
+          { "label": "Real-time Updates", "value": "Redis Pub/Sub coupled with Server-Sent Events (SSE) for live status streaming." },
+          { "label": "Page Rendering", "value": "Next.js Incremental Static Regeneration (ISR) for high-performance public status pages." },
+          { "label": "Alerting", value: "Webhook dispatchers with retry queues ensuring zero missed incident notifications." }
+        ],
+        "challenges": [
+          "Preventing false positive alerts — implemented multi-region verification before triggering incident state.",
+          "Handling high worker throughput — optimized BullMQ concurrency settings and connection pooling on Redis.",
+          "Instant status updates without heavy polling — SSE streaming pushes live downtime events to dashboard instantly."
+        ]
+      }
+    },
+    {
+      "name": "Multi-Agent Code Reviewer",
+      "subtitle": "LangGraph-Powered PR Analysis",
+      "status": "In progress",
+      "stack": ["LangGraph", "TypeScript", "OpenAI", "GitHub API", "PostgreSQL"],
+      "bullets": [
+        "Multi-agent system with specialized agents for security vulnerability detection, performance analysis, style linting, and test coverage gaps.",
+        "GitHub webhook triggering the agent pipeline on every PR, posting structured inline review comments on the diff.",
+        "Stateful agent graph allowing agents to share findings and produce consolidated, severity-ranked review reports."
+      ],
+      "deepDive": {
+        "arch": "  GitHub PR Webhook\n        │\n        ▼\n  [Orchestrator Agent]  (LangGraph StateGraph)\n        │\n        ├──► [Security Agent]    ── OWASP checks, injection risks\n        ├──► [Performance Agent] ── N+1 queries, complexity analysis\n        ├──► [Style Agent]       ── ESLint rules, naming conventions\n        └──► [Coverage Agent]    ── Missing test cases, branches\n                    │\n                    ▼\n           [Aggregator Node]\n                    │  Severity-ranked findings\n                    ▼\n         [GitHub API]  ──► Inline PR comments on diff\n                    │\n                    ▼\n         [PostgreSQL/Prisma] ──► Per-developer analytics",
+        "details": [
+          { "label": "Agent Framework", "value": "LangGraph StateGraph — agents share state and pass findings between nodes." },
+          { "label": "Specialization", "value": "4 domain-specific agents each with tailored system prompts and focused context windows." },
+          { "label": "Output Format", "value": "Structured JSON per finding: severity, line ref, suggestion, confidence score." },
+          { "label": "Analytics", "value": "Prisma + PostgreSQL for persisting review history, enabling per-dev quality trends." }
+        ],
+        "challenges": [
+          "Avoiding redundant findings — agents share a deduplication layer before final aggregation.",
+          "Keeping context within token limits for large diffs — diff is chunked and routed by file type.",
+          "False positive rate — each agent includes a confidence score; low-confidence findings are surfaced separately."
+        ]
+      }
+    },
+    {
+      "name": "AI Research Agent",
+      "subtitle": "Autonomous Multi-Source Research System",
+      "status": "Completed",
+      "stack": ["Python", "LangGraph", "LangChain", "Gemini/Groq", "Tavily", "ArXiv", "Wikipedia", "Rich", "Pydantic", "Loguru"],
+      "bullets": [
+        "Built an AI-powered research agent that autonomously decides when to use external tools instead of relying solely on an LLM's internal knowledge.",
+        "Researches topics via natural language interface, gathering information from multiple trusted sources (Tavily web search, ArXiv academic papers, Wikipedia background knowledge).",
+        "Generates structured Markdown research reports with automatic export options, execution metrics, and step-by-step logging."
+      ],
+      "deepDive": {
+        "arch": "  User Research Query\n        │\n        ▼\n  [LangGraph Orchestrator]  (StateGraph + ReAct Loop)\n        │\n        ├──► [Tavily Web Search]  ── Real-time web findings & citations\n        ├──► [ArXiv Tool]         ── Academic paper abstracts & metadata\n        └──► [Wikipedia Tool]     ── Background context & topic overview\n        │\n        ▼\n  [Report Synthesizer]  (LLM Node)\n        │  Pydantic schema validation & Markdown formatting\n        ├──► Structured Markdown Report (.md Export)\n        └──► Rich Terminal Interface + Loguru Execution Logs",
+        "details": [
+          { "label": "Orchestration", "value": "LangGraph StateGraph for dynamic tool routing and iterative research loops." },
+          { "label": "Tool Suite", "value": "Integrated Tavily API for search, ArXiv for papers, and Wikipedia for general context." },
+          { "label": "Validation", "value": "Pydantic models ensuring strict output structure for report sections and citations." },
+          { "label": "Observability", "value": "Loguru logging and Rich CLI components tracking execution metrics and tool calls." }
+        ],
+        "challenges": [
+          "Preventing infinite tool calling loops — implemented step counter limits and stopping conditions in LangGraph state.",
+          "Handling noisy search results — multi-stage LLM filtering to discard low-credibility sources before report generation.",
+          "Synthesizing heterogeneous data — normalizing ArXiv abstracts, Wikipedia summaries, and Tavily snippets into unified Markdown."
+        ]
+      }
+    },
+    {
+      "name": "Human Approval Gate Agent",
+      "subtitle": "Human-in-the-Loop AI Execution Agent",
+      "status": "Completed",
+      "stack": ["Python", "LangGraph", "LangChain", "OpenAI/Groq", "SQLite", "Pydantic"],
+      "bullets": [
+        "Built a Human-in-the-Loop (HITL) AI agent that executes real-world actions only after explicit human approval, ensuring reliability, safety, and complete traceability.",
+        "Converts natural language queries into emails, calendar events, and support tickets with automatic action validation prior to execution.",
+        "Pauses execution at a human approval checkpoint with Approve / Edit / Reject options, using LangGraph interrupts to resume execution seamlessly even after application restarts.",
+        "Maintains a complete audit trail of every decision and action for full transparency, accountability, and regulatory compliance."
+      ],
+      "deepDive": {
+        "arch": "  User Request (Natural Language)\n        │\n        ▼\n  [Intent & Action Parser]  (LLM + Pydantic Validation)\n        │  Generates structured action payload (email / calendar / ticket)\n        ▼\n  [Action Validator Node]  ── Schema & security validation\n        │\n        ▼\n  [Human Approval Gate]  (LangGraph Interrupt Checkpoint)\n        │  Execution pauses & persists graph state to SQLite checkpointer\n        │\n        ├──► APPROVE ──► [Tool Execution Node] ──► External API Dispatch\n        ├──► EDIT    ──► [State Mutator Node]   ──► Re-validate & Execute\n        └──► REJECT  ──► [Audit Log Node]      ──► Log Rejection & Exit\n        │\n        ▼\n  [Audit Log Engine]  ── Persistent SQLite audit trail of all actions & feedback",
+        "details": [
+          { "label": "Human-in-the-Loop", "value": "LangGraph interrupt() halts graph state until human explicitly Approves, Edits, or Rejects." },
+          { "label": "Persistence", "value": "SQLite checkpointer saves full graph state across application restarts and crash recoveries." },
+          { "label": "Action Parsing", "value": "Pydantic models validate email parameters, calendar times, and ticket priorities before approval." },
+          { "label": "Audit Logging", "value": "Immutable SQLite logging captures raw inputs, proposed actions, human feedback, and final outcomes." }
+        ],
+        "challenges": [
+          "Persisting graph state across restarts — configured LangGraph SqliteSaver checkpointer for zero data loss during approval waits.",
+          "Handling dynamic human edits — structured state mutator merges user modifications back into Pydantic models before execution.",
+          "Preventing unauthorized action execution — strict gate barrier ensures no external API calls occur prior to state approval."
+        ]
+      }
+    }
+  ]
+}
