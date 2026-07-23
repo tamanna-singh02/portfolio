@@ -1,4 +1,6 @@
 export default function Hero3DImage() {
+  const imageSrc = `${import.meta.env.BASE_URL}hero-developer.png`;
+
   return (
     <div className="hero-3d-wrapper">
       {/* Ambient background dual neon glow ring */}
@@ -17,7 +19,7 @@ export default function Hero3DImage() {
         {/* Crisp Hero Developer Image */}
         <div className="hero-image-container">
           <img
-            src="/hero-developer.png"
+            src={imageSrc}
             alt="Tamanna Singh - AI Engineer"
             className="hero-developer-img"
           />
