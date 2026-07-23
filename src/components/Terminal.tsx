@@ -136,7 +136,6 @@ export default function Terminal() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={onKey}
-            autoFocus
             autoComplete="off"
             autoCorrect="off"
             autoCapitalize="off"

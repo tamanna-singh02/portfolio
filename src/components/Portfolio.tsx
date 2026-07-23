@@ -56,8 +56,9 @@ export default function Portfolio() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Restore saved theme on mount
+  // Restore saved theme on mount and scroll to top
   useEffect(() => {
+    window.scrollTo(0, 0);
     const saved = (localStorage.getItem("portfolio-theme") as "dark" | "light") || "dark";
     setTheme(saved);
     document.documentElement.dataset.theme = saved;
