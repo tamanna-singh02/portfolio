@@ -1,7 +1,3 @@
-"use client";
-
-import Image from "next/image";
-
 export default function Hero3DImage() {
   return (
     <div className="hero-3d-wrapper">
@@ -20,12 +16,9 @@ export default function Hero3DImage() {
 
         {/* Crisp Hero Developer Image */}
         <div className="hero-image-container">
-          <Image
+          <img
             src="/hero-developer.png"
             alt="Tamanna Singh - AI Engineer"
-            width={1500}
-            height={1500}
-            priority
             className="hero-developer-img"
           />
         </div>

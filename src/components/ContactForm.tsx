@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 
 export default function ContactForm() {
@@ -9,18 +7,16 @@ export default function ContactForm() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus("sending");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (!res.ok) throw new Error();
+
+    setTimeout(() => {
+      // Create mailto fallback link for seamless pure client-side interaction
+      const subject = encodeURIComponent(`Portfolio Message from ${form.name}`);
+      const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`);
+      window.location.href = `mailto:tamannasingh0204@gmail.com?subject=${subject}&body=${body}`;
+
       setStatus("success");
       setForm({ name: "", email: "", message: "" });
-    } catch {
-      setStatus("error");
-    }
+    }, 400);
   }
 
   return (
@@ -59,10 +55,14 @@ export default function ContactForm() {
         />
       </div>
       <button className="form-submit" type="submit" disabled={status === "sending"}>
-        {status === "sending" ? "Sending..." : "Send Message →"}
+        {status === "sending" ? "Opening Email Client..." : "Send Message →"}
       </button>
-      {status === "success" && <div className="form-success">✓ Message sent! I&apos;ll get back to you soon.</div>}
-      {status === "error" && <div className="form-error">⚠ Failed to send. Email me directly instead.</div>}
+      {status === "success" && (
+        <div className="form-success">
+          ✓ Your email draft has been prepared! If your mail client didn&apos;t open, reach out directly to tamannasingh0204@gmail.com
+        </div>
+      )}
+      {status === "error" && <div className="form-error">⚠ Failed to process. Email me directly at tamannasingh0204@gmail.com</div>}
     </form>
   );
 }

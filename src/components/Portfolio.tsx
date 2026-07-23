@@ -1,16 +1,13 @@
-"use client";
-
 import { useEffect, useRef, useState } from "react";
-import dynamic from "next/dynamic";
 import { DATA } from "@/lib/data";
 
-const OrbCanvas = dynamic(() => import("./OrbCanvas"), { ssr: false });
-const Hero3DImage = dynamic(() => import("./Hero3DImage"), { ssr: false });
-const SkillsRadar = dynamic(() => import("./SkillsRadar"), { ssr: false });
-const GitHubStats = dynamic(() => import("./GitHubStats"), { ssr: false });
-const Terminal = dynamic(() => import("./Terminal"), { ssr: false });
-const ProjectCard = dynamic(() => import("./ProjectCard"), { ssr: false });
-const ContactForm = dynamic(() => import("./ContactForm"), { ssr: false });
+import OrbCanvas from "./OrbCanvas";
+import Hero3DImage from "./Hero3DImage";
+import SkillsRadar from "./SkillsRadar";
+import GitHubStats from "./GitHubStats";
+import Terminal from "./Terminal";
+import ProjectCard from "./ProjectCard";
+import ContactForm from "./ContactForm";
 
 function useTyping(titles: string[], speed = 60) {
   const [text, setText] = useState("");
